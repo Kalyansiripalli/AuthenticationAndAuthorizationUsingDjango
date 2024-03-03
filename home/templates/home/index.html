@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block start %}
+
+<h1>This is Home Page</h1>
+
+<a href="/about/">About</a>
+<a href="/contactus">Contact</a>
+<table class="container">
+  <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>CanVote</th>
+  </tr>
+  {% for obj in data %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{obj.name}}</td>
+    <td>{{obj.age}}</td>
+    <td>{% if obj.age >= 18 %} Yes {% else %} No {% endif %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
